@@ -22,6 +22,7 @@ public class Main {
                 new Product("Тарелка", 179),
                 new Product("Миска", 953)};
 
+//        Order.makePurchase(null, products[random.nextInt(products.length)]); // проаерка данных
         Order.makePurchase(buyers[random.nextInt(buyers.length)], products[random.nextInt(products.length)]);
         Order.makePurchase(buyers[random.nextInt(buyers.length)], products[random.nextInt(products.length)]);
         Order.makePurchase(buyers[random.nextInt(buyers.length)], products[random.nextInt(products.length)]);
