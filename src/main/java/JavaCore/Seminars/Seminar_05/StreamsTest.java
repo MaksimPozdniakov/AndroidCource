@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 public class StreamsTest {
     public static void main(String[] args) {
         testStringsCollection();
-        testIntegerCollection();
+//        testIntegerCollection();
     }
 
 
@@ -29,20 +29,20 @@ public class StreamsTest {
      */
 
     //конвеерные и терминальные
-    public static void testIntegerCollection() {
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18);
-        List<String> result = numbers.stream()
-                .filter(n -> n % 2 == 0)
-                .skip(2)
-                .limit(4)
-                .map(n -> n * n)
-//                .sorted(Comparator.reverseOrder())
-                .sorted((a, b) -> b - a)
-                .map(n -> "Number: " + n)
-                .collect(Collectors.toList());
-
-//        System.out.println(result);
-    }
+//    public static void testIntegerCollection() {
+//        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18);
+//        List<String> result = numbers.stream()
+//                .filter(n -> n % 2 == 0)
+//                .skip(2)
+//                .limit(4)
+//                .map(n -> n * n)
+////                .sorted(Comparator.reverseOrder())
+//                .sorted((a, b) -> b - a)
+//                .map(n -> "Number: " + n)
+//                .collect(Collectors.toList());
+//
+////        System.out.println(result);
+//    }
 
     /**
      * Отфильтровать и оставить только те строки, которые начинаются на букву "J".
@@ -66,20 +66,21 @@ public class StreamsTest {
                 .limit(2)
                 .sorted()
                 .map(s -> s + "!")
-                .map(s -> Person.builder()
+                /*.map(s -> Person.builder()
                         .name(s)
                         .age(new Random().nextInt(33))
                         .salary(new Random().nextInt(33000))
                         .build()
-                )/*.map(s -> {
+                )*/.map(s -> {
                     Person person = new Person();
                     person.setName(s);
                     person.setAge(new Random().nextInt(33));
                     person.setSalary(new Random().nextInt(33000));
                     return person;
-                })*/
+                })
 //                .collect(Collectors.toList());
                 .toList();
+
 
         var maxSalary = result.stream()
                 .map(Person::getSalary)

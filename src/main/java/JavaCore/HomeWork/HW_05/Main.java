@@ -1,52 +1,57 @@
 package JavaCore.HomeWork.HW_05;
 
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
-//        Random rnd = new Random();
-//        List<Integer> randomMarks = new ArrayList<>();
-//        randomMarks.add(rnd.nextInt(5));
-//        randomMarks.add(rnd.nextInt(5));
-//        randomMarks.add(rnd.nextInt(5));
-//        randomMarks.add(rnd.nextInt(5));
-//        randomMarks.add(rnd.nextInt(5));
-
-        List<Integer> randomMarks = new Random()
-                .ints(5, 3, 6)
-                .boxed()
-                .toList();
-
-
-//        List<Student> students = new ArrayList<>();
-//        students.add(new Student("Maksim", randomMarks, "Информатика"));
-//        students.add(new Student("Yana", randomMarks, "Analyst"));
-//        students.add(new Student("Inna", randomMarks, "Tester"));
-//        students.add(new Student("Peter", randomMarks, "Android developer"));
-//        students.add(new Student("Roma", randomMarks, "Programmer"));
 
         List<Student> students = Stream.of(
-                        Student.builder().name("Maksim").listMarks(randomMarks).specialization("Информатика").build(),
-                        Student.builder().name("Yana").listMarks(randomMarks).specialization("Математика").build(),
-                        Student.builder().name("Inna").listMarks(randomMarks).specialization("История").build(),
-                        Student.builder().name("Peter").listMarks(randomMarks).specialization("Физика").build(),
-                        Student.builder().name("Roma").listMarks(randomMarks).specialization("Информатика").build(),
-                        Student.builder().name("Nikola").listMarks(randomMarks).specialization("Информатика").build(),
-                        Student.builder().name("Tom").listMarks(randomMarks).specialization("Машиностроение").build(),
-                        Student.builder().name("Katrin").listMarks(randomMarks).specialization("Математика").build(),
-                        Student.builder().name("Tomas").listMarks(randomMarks).specialization("Информатика").build(),
-                        Student.builder().name("Brad").listMarks(randomMarks).specialization("История").build(),
-                        Student.builder().name("Bill").listMarks(randomMarks).specialization("Информатика").build(),
-                        Student.builder().name("Megan").listMarks(randomMarks).specialization("Физика").build(),
-                        Student.builder().name("Britni").listMarks(randomMarks).specialization("Информатика").build(),
-                        Student.builder().name("Karol").listMarks(randomMarks).specialization("Машиностроение").build(),
-                        Student.builder().name("Rob").listMarks(randomMarks).specialization("Информатика").build()
+                        new Student("Maksim", randomMarksList(), "Информатика"),
+                        new Student("Yana", randomMarksList(), "Математика"),
+                        new Student("Inna", randomMarksList(), "История"),
+                        new Student("John", randomMarksList(), "Физика"),
+                        new Student("Elena", randomMarksList(), "Информатика"),
+                        new Student("David", randomMarksList(), "Информатика"),
+                        new Student("Anna", randomMarksList(), "Литература"),
+                        new Student("Alex", randomMarksList(), "Информатика"),
+                        new Student("Olga", randomMarksList(), "Математика"),
+                        new Student("Robert", randomMarksList(), "История"),
+                        new Student("Sophia", randomMarksList(), "Физика"),
+                        new Student("Michael", randomMarksList(), "Биология"),
+                        new Student("Laura", randomMarksList(), "Информатика"),
+                        new Student("Daniel", randomMarksList(), "Литература"),
+                        new Student("Emma", randomMarksList(), "Информатика"),
+                        new Student("Sophie", randomMarksList(), "Информатика"),
+                        new Student("Jack", randomMarksList(), "Математика"),
+                        new Student("Liam", randomMarksList(), "История"),
+                        new Student("Ava", randomMarksList(), "Физика"),
+                        new Student("Noah", randomMarksList(), "Информатика"),
+                        new Student("Olivia", randomMarksList(), "Информатика"),
+                        new Student("Lucas", randomMarksList(), "Литература"),
+                        new Student("Emma", randomMarksList(), "Информатика"),
+                        new Student("Benjamin", randomMarksList(), "Математика"),
+                        new Student("Charlotte", randomMarksList(), "История")
                 )
                 .toList();
-
         students.forEach(System.out::println);
 
+
+        System.out.println();
+        System.out.println("SortList:");
+        List<Student> sortedStudents = students.stream()
+                .filter(student -> student.middleMarkMethod() > 4.5)
+                .sorted(Comparator.comparingDouble(Student::middleMarkMethod).reversed())
+                .limit(5)
+                .toList();
+        sortedStudents.forEach(System.out::println);
     }
+
+    private static List<Integer> randomMarksList() {
+        return new Random()
+                .ints(10, 4, 6)
+                .boxed()
+                .toList();
+    }
+
 }
