@@ -1,4 +1,7 @@
 Maksim: Привет!
-ввв: привет
-ыы: яяя
-ыы: чччч
+Maksim: ddddd
+Yana: fffff
+Maksim: Проверяем работает ли слушатель? 
+Yana: А тут?
+Maksim: sss
+Maksim: ddd

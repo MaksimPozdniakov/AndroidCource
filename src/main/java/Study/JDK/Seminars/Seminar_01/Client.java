@@ -23,6 +23,10 @@ public class Client extends JFrame {
         createPanel();
         addListenerOnButton();
 
+        textFieldMessage.addActionListener(e -> {
+            sendMessage();
+        });
+
         this.server = server;
         server.addClient(this);
 
@@ -92,17 +96,7 @@ public class Client extends JFrame {
         jButtonSend.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                String message = name + ": " + textFieldMessage.getText();
-                server.addNewMessage(message);
-
-                try {
-                    server.printDialog(jTextArea);
-                } catch (FileNotFoundException ex) {
-                    throw new RuntimeException(ex);
-                }
-
-                textFieldMessage.setText("");
+                sendMessage();
             }
         });
     }
@@ -115,6 +109,17 @@ public class Client extends JFrame {
         jTextArea.setText(dialogText.toString());
     }
 
+    private void sendMessage() {
+        String message = name + ": " + textFieldMessage.getText();
+        server.addNewMessage(message);
 
+        try {
+            server.printDialog(jTextArea);
+        } catch (FileNotFoundException ex) {
+            throw new RuntimeException(ex);
+        }
+
+        textFieldMessage.setText("");
+    }
 
 }
