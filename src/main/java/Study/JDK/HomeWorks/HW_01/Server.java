@@ -1,7 +1,7 @@
-package Study.JDK.Seminars.Seminar_01;
+package Study.JDK.HomeWorks.HW_01;
 
-import Study.JDK.Seminars.Seminar_01.ReadAndWrite.ReadFile;
-import Study.JDK.Seminars.Seminar_01.ReadAndWrite.WriteToFile;
+import Study.JDK.HomeWorks.HW_01.ReadAndWrite.ReadFile;
+import Study.JDK.HomeWorks.HW_01.ReadAndWrite.WriteToFile;
 import lombok.Getter;
 import javax.swing.*;
 import java.awt.*;
@@ -19,8 +19,8 @@ public class Server extends JFrame {
 
     private boolean statusServer;
     private ArrayList<String> dialogs = new ArrayList<>();
-    private ReadFile readFile = new ReadFile("src/main/java/Study/JDK/Seminars/Seminar_01/ReadAndWrite/log.txt");
-    private WriteToFile writeToFile = new WriteToFile("src/main/java/Study/JDK/Seminars/Seminar_01/" +
+    private ReadFile readFile = new ReadFile("src/main/java/Study/JDK/HomeWorks/HW_01/ReadAndWrite/log.txt");
+    private WriteToFile writeToFile = new WriteToFile("src/main/java/Study/JDK/HomeWorks/HW_01/" +
             "ReadAndWrite/log.txt");
 
     private ArrayList<Client> clients = new ArrayList<>();

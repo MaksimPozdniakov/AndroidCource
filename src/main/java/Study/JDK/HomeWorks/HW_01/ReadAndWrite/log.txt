@@ -5,3 +5,5 @@ Maksim: Проверяем работает ли слушатель?
 Yana: А тут?
 Maksim: sss
 Maksim: ddd
+Maksim: qqq
+Yana: wwww

@@ -1,4 +1,4 @@
-package Study.JDK.Seminars.Seminar_01;
+package Study.JDK.HomeWorks.HW_01;
 
 import javax.swing.*;
 import java.awt.*;

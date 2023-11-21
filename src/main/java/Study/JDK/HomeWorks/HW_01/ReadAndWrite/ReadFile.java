@@ -1,4 +1,4 @@
-package Study.JDK.Seminars.Seminar_01.ReadAndWrite;
+package Study.JDK.HomeWorks.HW_01.ReadAndWrite;
 
 import java.io.File;
 import java.io.FileNotFoundException;
