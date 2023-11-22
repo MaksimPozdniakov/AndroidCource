@@ -7,20 +7,21 @@ public class Main {
         int[] array = {3, 5, 7, 2, 4, 1, 8, 6};
         System.out.println(Arrays.toString(array));
 
-        mergeSort(array, 0, array.length -1);
+        mergeSort(array, 0, array.length - 1);
         System.out.println(Arrays.toString(array));
     }
 
     public static void mergeSort(int[] array, int left, int right) {
         if (left < right) {
-            int middle = (left + right) / 2;
+            int middle = (right + left) / 2;
+
             mergeSort(array, left, middle);
             mergeSort(array, middle + 1, right);
             merge(array, left, middle, right);
         }
     }
 
-    private static void merge(int[] array, int left, int middle, int right) {
+    public static void merge(int[] array, int left, int middle, int right) {
         int leftLength = middle - left + 1;
         int rightLength = right - middle;
 
@@ -56,6 +57,5 @@ public class Main {
             rightIndex++;
             resultIndex++;
         }
-
     }
 }
