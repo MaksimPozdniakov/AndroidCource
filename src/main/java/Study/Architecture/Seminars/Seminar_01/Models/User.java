@@ -1,4 +1,4 @@
-package Study.Architecture.Seminar_01.Models;
+package Study.Architecture.Seminars.Seminar_01.Models;
 
 public class User {
 
@@ -9,7 +9,7 @@ public class User {
 
     private static int counter = 100;
 
-    //
+    // инициализатор
     {
         id = ++counter;
     }

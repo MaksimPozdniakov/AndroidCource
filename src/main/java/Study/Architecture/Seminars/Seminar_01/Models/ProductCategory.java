@@ -1,9 +1,10 @@
-package Study.Architecture.Seminar_01.Models;
+package Study.Architecture.Seminars.Seminar_01.Models;
 
 public class ProductCategory {
 
     private static int counter = 10;
 
+    // инициализатор
     {
         id = ++counter;
     }

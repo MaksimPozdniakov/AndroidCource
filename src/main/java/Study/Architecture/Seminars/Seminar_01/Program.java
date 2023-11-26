@@ -1,7 +1,7 @@
-package Study.Architecture.Seminar_01;
+package Study.Architecture.Seminars.Seminar_01;
 
-import Study.Architecture.Seminar_01.InMemory.StoreService;
-import Study.Architecture.Seminar_01.Models.*;
+import Study.Architecture.Seminars.Seminar_01.InMemory.StoreService;
+import Study.Architecture.Seminars.Seminar_01.Models.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

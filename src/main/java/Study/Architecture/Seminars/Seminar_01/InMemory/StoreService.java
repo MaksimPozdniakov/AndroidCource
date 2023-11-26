@@ -1,6 +1,6 @@
-package Study.Architecture.Seminar_01.InMemory;
+package Study.Architecture.Seminars.Seminar_01.InMemory;
 
-import Study.Architecture.Seminar_01.Models.OrderEntity;
+import Study.Architecture.Seminars.Seminar_01.Models.OrderEntity;
 
 import java.util.Collection;
 

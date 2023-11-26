@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class Client extends JFrame {
     private static final int WIDTH = 555;
     private static final int HEIGHT = 555;
-
     private JPanel jPanelHeader, jPanelFooter;
     private JTextArea jTextArea;
     private JButton jButtonConnect, jButtonSend;
@@ -17,12 +16,11 @@ public class Client extends JFrame {
     private Server server;
     private String name;
 
-    private ArrayList<String> dialogs = new ArrayList<>();
-
     public Client(Server server, int x, int y) {
         createPanel();
         addListenerOnButton();
 
+        // обработчик нажатия кнопки Enter
         textFieldMessage.addActionListener(e -> {
             sendMessage();
         });
@@ -109,6 +107,7 @@ public class Client extends JFrame {
         jTextArea.setText(dialogText.toString());
     }
 
+    // метод отправки сообщения
     private void sendMessage() {
         String message = name + ": " + textFieldMessage.getText();
         server.addNewMessage(message);

@@ -1,4 +1,4 @@
-package Study.Architecture.Seminar_01.Models;
+package Study.Architecture.Seminars.Seminar_01.Models;
 
 public class OrderItem {
 
