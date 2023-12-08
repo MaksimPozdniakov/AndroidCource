@@ -11,7 +11,7 @@ public class Customer {
     private final int id;
     private final String login;
     private final String password;
-    private Collection<Ticket> tickets = new ArrayList<>();
+    private ArrayList<Ticket> tickets = new ArrayList<>();
 
     public Customer(String login, String password) {
         this.login = login;
@@ -19,8 +19,30 @@ public class Customer {
         id = ++counter;
     }
 
-    public void setTickets(Collection<Ticket> tickets) {
-        this.tickets = tickets;
+//    public void setTickets(Collection<Ticket> tickets) {
+//        this.tickets = tickets;
+//    }
+
+    public void addTicket(Ticket ticket) {
+        tickets.add(ticket);
     }
 
+//    public void printTicket() {
+//        for (Ticket ticket : tickets) {
+//            System.out.println(ticket);
+//        }
+//    }
+
+    public ArrayList printTicket() {
+        return tickets;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer {" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

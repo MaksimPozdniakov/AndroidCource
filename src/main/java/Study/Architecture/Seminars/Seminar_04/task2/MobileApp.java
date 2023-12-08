@@ -19,6 +19,10 @@ public class MobileApp {
         database.addNewCustomer(customer);
     }
 
+    public void getData() {
+        System.out.println(database.getCustomers());
+    }
+
     public Collection<Ticket> getTickets(){
         return customer.getTickets();
     }
@@ -27,23 +31,17 @@ public class MobileApp {
         return ticketProvider.buyTicket(customer.getId(), cardNo);
     }
 
+    public void addTicket() {
+        customer.addTicket(ticketProvider.getTicket());
+        customer.addTicket(ticketProvider.getTicket());
+        customer.addTicket(ticketProvider.getTicket());
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public void printTicket() {
+        for (int i = 0; i < customer.printTicket().size(); i++) {
+            System.out.println(customer.printTicket().get(i));
+        }
+    }
 
 //    public void searchTicket(Date date){
 //        customer.setTickets(ticketProvider.searchTicket(customer.getId(), new Date()));

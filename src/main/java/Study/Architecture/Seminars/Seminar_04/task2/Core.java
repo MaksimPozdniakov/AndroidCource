@@ -20,7 +20,6 @@ public class Core {
      */
 
     private final TicketProvider ticketProvider;
-
     private final PaymentProvider paymentProvider;
     private final Database database;
 
@@ -30,6 +29,5 @@ public class Core {
         paymentProvider = new PaymentProvider();
         ticketProvider = new TicketProvider(database, paymentProvider);
     }
-
 
 }

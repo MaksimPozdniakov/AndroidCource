@@ -6,23 +6,17 @@ import java.util.Collection;
 public class Database {
 
     public Database(){}
-
     private static int counter = 100;
-
-    private final Collection<Ticket> tickets = new ArrayList<>();
     private final Collection<Customer> customers = new ArrayList<>();
 
     public void addNewCustomer(Customer customer) {
         customers.add(customer);
     }
 
-    public Collection<Ticket> getTickets() {
-        return tickets;
-    }
-
     public Collection<Customer> getCustomers() {
         return customers;
     }
+
 
     /**
      * Получить актуальную стоимость билета

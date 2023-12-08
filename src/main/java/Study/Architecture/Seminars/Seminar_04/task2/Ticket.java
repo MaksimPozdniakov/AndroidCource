@@ -13,6 +13,18 @@ class Ticket{
     private String qrcode;
 
     public Ticket(){
+        date = new Date();
+        qrcode = "Q";
         id = ++counter;
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket {" +
+                "id=" + id +
+                ", customerId=" + customerId +
+                ", date=" + date +
+                ", qrcode='" + qrcode + '\'' +
+                '}';
     }
 }

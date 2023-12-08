@@ -6,6 +6,7 @@ import java.util.Date;
 
 public class TicketProvider {
 
+    private Ticket ticket;
     private final Database database;
     private final PaymentProvider paymentProvider;
 
@@ -24,23 +25,11 @@ public class TicketProvider {
         int orderId = database.createTicketOrder(clientId);
         double amount = database.getTicketAmount();
         return paymentProvider.buyTicket(orderId,  cardNo, amount);
-
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public Ticket getTicket() {
+        return new Ticket();
+    }
 
 
 //    public Collection<Ticket> searchTicket(int clientId, Date date){
