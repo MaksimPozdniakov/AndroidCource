@@ -70,6 +70,12 @@ public class Program {
                                 System.out.println("Номер модели указан некорректно.");
                             }
                             break;
+                        case 8:
+                            System.out.println("Добавить модель");
+                            break;
+                        case 9:
+                            System.out.println("Удалить модель");
+                            break;
                         default:
                             System.out.println("Укажите корректный пункт меню.");
                     }

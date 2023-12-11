@@ -12,4 +12,6 @@ public interface Database {
 
     Collection<Entity> getAll();
 
+    Collection<Entity> printUserModels(String description);
+
 }

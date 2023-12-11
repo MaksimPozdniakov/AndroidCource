@@ -13,8 +13,8 @@ public class EditorDatabaseAccess implements DatabaseAccess {
     }
 
     @Override
-    public void addEntity(Entity entity) {
-        editorDatabase.getAll().add(entity);
+    public void addEntity(Entity entity, String description) {
+        editorDatabase.addNewModel(description);
     }
 
     @Override

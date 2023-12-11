@@ -38,6 +38,20 @@ public class EditorDatabase implements Database {
         return entities;
     }
 
+    @Override
+    public Collection<Entity> printUserModels(String description) {
+        addNewModel(description);
+        return entities;
+    }
+
+    public void addNewModel(String description) {
+        Model3D model = new Model3D(description);
+        Texture texture = generateTexture();
+        model.getTextures().add(texture);
+        entities.add(texture);
+        entities.add(model);
+    }
+
     private void generateModelAndTextures(){
         Model3D model = new Model3D();
         int textureCount = random.nextInt(3);

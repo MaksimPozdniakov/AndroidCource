@@ -7,13 +7,15 @@ public class Model3D implements Entity {
     private static int counter = 10000;
     private int id;
     private Collection<Texture> textures = new ArrayList<>();
+    private String description;
 
     {
         id = ++counter;
     }
 
-    public Model3D(){
-
+    public Model3D(){}
+    public Model3D(String description) {
+        this.description = description;
     }
 
     public Model3D(Collection<Texture> textures){
@@ -31,6 +33,10 @@ public class Model3D implements Entity {
 
     @Override
     public String toString() {
-        return String.format("Model #%s", id);
+        if (!description.isEmpty()) {
+            return String.format("Model #%s, %s", id, description);
+        } else {
+            return String.format("Model #%s", id);
+        }
     }
 }
