@@ -12,6 +12,8 @@ public interface Database {
 
     Collection<Entity> getAll();
 
-    Collection<Entity> printUserModels(String description);
+    void addEntity(Entity entity);
+    void removeEntity(Entity entity);
+    Collection<Entity> printUserModels();
 
 }

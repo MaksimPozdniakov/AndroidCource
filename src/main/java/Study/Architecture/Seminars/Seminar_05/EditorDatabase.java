@@ -7,7 +7,7 @@ import java.util.Random;
 public class EditorDatabase implements Database {
 
     private final ProjectFile projectFile;
-    private Collection<Entity> entities;
+    private Collection<Entity> entities = new ArrayList<>();
     private Random random = new Random();
 
     public EditorDatabase(ProjectFile projectFile){
@@ -38,18 +38,28 @@ public class EditorDatabase implements Database {
         return entities;
     }
 
+    // region add_Entity
     @Override
-    public Collection<Entity> printUserModels(String description) {
-        addNewModel(description);
+    public void addEntity(Entity entity) {
+        saveNewEntity(entity);
+    }
+
+    private void saveNewEntity(Entity entity) {
+        entities.add(entity);
+    }
+
+    @Override
+    public Collection<Entity> printUserModels() {
         return entities;
     }
 
-    public void addNewModel(String description) {
-        Model3D model = new Model3D(description);
-        Texture texture = generateTexture();
-        model.getTextures().add(texture);
-        entities.add(texture);
-        entities.add(model);
+    // endregion
+
+    @Override
+    public void removeEntity(Entity entity) {
+        if (entities != null) {
+            entities.remove(entity);
+        }
     }
 
     private void generateModelAndTextures(){

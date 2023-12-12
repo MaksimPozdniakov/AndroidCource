@@ -47,5 +47,4 @@ public class EditorBusinessLogicalLayer implements BusinessLogicalLayer {
         }
     }
 
-
 }

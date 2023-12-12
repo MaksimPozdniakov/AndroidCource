@@ -7,12 +7,12 @@ public class Program {
     /**
      * Необходимо разделить на горизонтальные уровни "Редактор 3D графики".
      * Один пользователь. Программа работает на одном компьютере без выхода в сеть.
-     *
+
      * Что видит пользователь, как взаимодействует? (Панель загрузки, блок редактирования, блок просмотра).
      * Какие задачи можно делать – функции системы? (Загрузить 3D модель, рассмотреть 3D модель, создать новую,
      * редактировать вершины, текстуры, сделать рендер, сохранить рендер).
      * Какие и где хранятся данные? (файлы 3D моделей, рендеры, анимация .., в файловой системе компьютера).
-     *
+
      * Предложить варианты связывания всех уровней – сценарии использования. 3-4 сценария.
      * Сквозная функция – создать новую 3D модель, сделать рендер для печати на принтере…
      */
@@ -30,6 +30,9 @@ public class Program {
             System.out.println("5. Отобразить все текстуры проекта");
             System.out.println("6. Выполнить рендер всех моделей");
             System.out.println("7. Выполнить рендер модели");
+            System.out.println("8. Добавить модель");
+            System.out.println("9. Удалить модель");
+            System.out.println("10. Показать все пользовательские модели");
             System.out.println("0. ЗАВЕРШЕНИЕ РАБОТЫ ПРИЛОЖЕНИЯ");
             System.out.print("Пожалуйста, выберите пункт меню: ");
             if (scanner.hasNextInt()){
@@ -70,12 +73,23 @@ public class Program {
                                 System.out.println("Номер модели указан некорректно.");
                             }
                             break;
+
                         case 8:
-                            System.out.println("Добавить модель");
+                            UserModel newModel = editor3D.createNewModelFromInput();
+                            editor3D.addModel(newModel);
+                            System.out.println("Модель успешно добавлена.");
+                            System.out.println();
                             break;
+
                         case 9:
-                            System.out.println("Удалить модель");
+                            UserModel userModel = editor3D.removeModelMethod();
+                            editor3D.removeModel(userModel);
                             break;
+
+                        case 10:
+                            editor3D.print();
+                            break;
+
                         default:
                             System.out.println("Укажите корректный пункт меню.");
                     }
