@@ -98,7 +98,7 @@ public class Editor3D implements UILayer {
             list2.add((UserModel)entity);
         }
 
-        System.out.println("Введите номер определи модели сверху вниз");
+        System.out.println("Введите номер модели сверху вниз");
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
         return list2.get(number - 1);
