@@ -29,13 +29,6 @@ public class Program {
         notesController.routeGetAll();
         System.out.println();
 
-//        // Удаляем запись
-//        int choce = 0;
-//        ArrayList notes = (ArrayList) notesController.getCollection();
-//        for (int n = 0; n < notes.size(); n++) {
-//            notesController.routeRemoveNote((Note) notes.get(choce));
-//        }
-
         // Удаляем записи
         ArrayList<Note> notes = new ArrayList<>(notesController.getCollection());
         notesController.routeRemoveNote(notes.get(0));
