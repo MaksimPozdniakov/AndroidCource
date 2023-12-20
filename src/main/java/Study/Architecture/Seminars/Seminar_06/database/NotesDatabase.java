@@ -1,6 +1,7 @@
-package ru.geekbrains.lesson6.database;
+package Study.Architecture.Seminars.Seminar_06.database;
 
-import ru.geekbrains.lesson6.notes.infrastructure.persistance.Database;
+
+import Study.Architecture.Seminars.Seminar_06.notes.infrastructure.persistance.Database;
 
 public class NotesDatabase implements Database {
 

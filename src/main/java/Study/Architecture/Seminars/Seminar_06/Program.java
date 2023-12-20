@@ -1,16 +1,48 @@
-package ru.geekbrains.lesson6;
+package Study.Architecture.Seminars.Seminar_06;
 
-import ru.geekbrains.lesson6.database.NotesDatabase;
-import ru.geekbrains.lesson6.notes.application.ConcreteNoteEditor;
-import ru.geekbrains.lesson6.notes.infrastructure.persistance.DatabaseContext;
-import ru.geekbrains.lesson6.notes.presentation.queries.controllers.NotesController;
-import ru.geekbrains.lesson6.notes.presentation.queries.views.NotesConsolePresenter;
+import Study.Architecture.Seminars.Seminar_06.database.NotesDatabase;
+import Study.Architecture.Seminars.Seminar_06.notes.application.ConcreteNoteEditor;
+import Study.Architecture.Seminars.Seminar_06.notes.domain.Note;
+import Study.Architecture.Seminars.Seminar_06.notes.infrastructure.persistance.DatabaseContext;
+import Study.Architecture.Seminars.Seminar_06.notes.presentation.queries.controllers.NotesController;
+import Study.Architecture.Seminars.Seminar_06.notes.presentation.queries.views.NotesConsolePresenter;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 public class Program {
 
     public static void main(String[] args) {
-        NotesController notesController = new NotesController(new ConcreteNoteEditor(new NotesConsolePresenter(), new DatabaseContext(new NotesDatabase())));
+        NotesController notesController =
+                new NotesController(new ConcreteNoteEditor
+                        (new NotesConsolePresenter(), new DatabaseContext(new NotesDatabase())));
         notesController.routeGetAll();
+
+        // Добавляем запись
+        notesController.routeAddNote(new Note(1,1,"ddd", "fff", new Date()));
+        notesController.routeAddNote(new Note(2,2,"aaa", "fff", new Date()));
+        notesController.routeAddNote(new Note(3,3,"sss", "fff", new Date()));
+        notesController.routeAddNote(new Note(4,4,"ddd", "fff", new Date()));
+        notesController.routeAddNote(new Note(5,5,"fff", "fff", new Date()));
+
+        // Выводим все записи
+        notesController.routeGetAll();
+        System.out.println();
+
+//        // Удаляем запись
+//        int choce = 0;
+//        ArrayList notes = (ArrayList) notesController.getCollection();
+//        for (int n = 0; n < notes.size(); n++) {
+//            notesController.routeRemoveNote((Note) notes.get(choce));
+//        }
+
+        // Удаляем записи
+        ArrayList<Note> notes = new ArrayList<>(notesController.getCollection());
+        notesController.routeRemoveNote(notes.get(0));
+
+        // Выводим все записи
+        notesController.routeGetAll();
+
     }
 
 }
