@@ -4,10 +4,7 @@ package Study.Architecture.Seminars.Seminar_08.models;
 import Study.Architecture.Seminars.Seminar_08.presenters.Model;
 import lombok.Getter;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class TableService implements Model {
 
@@ -47,6 +44,36 @@ public class TableService implements Model {
         throw new RuntimeException("Некорректный номер столика");
     }
 
+    // меняем резервирование
+    @Override
+    public int changeReservationTable(int oldReservation) {
+        int tableNumber = 0;
+        String name = "";
+
+        Iterator<Reservation> iterator = reservationList.iterator();
+        while (iterator.hasNext()) {
+            Reservation reservation = iterator.next();
+            if (reservation.getId() == oldReservation) {
+                tableNumber = reservation.getTableNumber();
+                name = reservation.getName();
+                iterator.remove();
+            }
+        }
+
+        for (Table table : tables) {
+            if (table.getNo() == tableNumber) {
+                Reservation reservation = new Reservation(table, new Date(), name);
+                table.getReservations().add(reservation);
+
+                // Запись всех записей резервирования в один список
+                reservationList.add(reservation);
+
+                return reservation.getId();
+            }
+        }
+        throw new RuntimeException("Ошибка изменения брони");
+    }
+
 
     @Override
     public List<Reservation> getReservationList() { // возвращаем список резервирований
@@ -55,17 +82,13 @@ public class TableService implements Model {
 
     @Override
     public void dellReservation(int id) { // отменяем резервирование столика
-        for (Reservation reservation: reservationList) {
+        Iterator<Reservation> iterator = reservationList.iterator();
+        while (iterator.hasNext()) {
+            Reservation reservation = iterator.next();
             if (reservation.getId() == id) {
-                reservationList.remove(reservation);
+                iterator.remove();
             }
         }
     }
-
-    // меняем резервирование
-    public int changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name) {
-        return -1;
-    }
-
 
 }

@@ -34,28 +34,31 @@ public class BookingView implements View {
 
     }
 
-    public void changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name){
-
-    }
-
-
     public void reservationTable(Date orderDate, int tableNo, String name){
         for (ViewObserver observer : observers){
             observer.onReservationTable(orderDate, tableNo, name);
         }
     }
 
+    public void changeReservationTable(int oldReservation) {
+        for (ViewObserver observer: observers) {
+            observer.changeReservationTable(oldReservation);
+        }
+    }
+
     // Вывод списка всех записей резервирования
     @Override
-    public void showReservationList(List<Reservation> reservationList) {
-        for (Reservation reservation : reservationList) {
+    public void getReservationList(List<Reservation> reservationList) {
+        for (Reservation reservation: reservationList) {
             System.out.println(reservation);
         }
     }
 
     @Override
     public void dellReservation(int id) {
-
+        for (ViewObserver observer : observers){
+            observer.dellReservation(id);
+        }
     }
 
 

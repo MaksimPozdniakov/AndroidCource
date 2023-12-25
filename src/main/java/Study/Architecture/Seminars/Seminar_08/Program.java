@@ -19,10 +19,12 @@ public class Program {
         BookingPresenter bookingPresenter = new BookingPresenter(tableService, bookingView);
 
         // Метод выводит все столы
+        System.out.println("Все столы в зале");
         bookingPresenter.updateUILoadTables();
         System.out.println();
 
         // метод осуществляет бронирование столика и возвращает ID Rezervation
+        System.out.println("Процесс бронирования");
         bookingView.reservationTable(new Date(), 1, "Станислав");
         bookingView.reservationTable(new Date(), 2, "Станислав");
         bookingView.reservationTable(new Date(), 3, "Станислав");
@@ -31,23 +33,25 @@ public class Program {
         System.out.println();
 
         // Вывод списка всех записей резервирования
+        System.out.println("Все записи до отмены");
         bookingPresenter.showReservationList();
+        System.out.println();
 
+        // Отменяем запись
+        bookingView.dellReservation(1001);
 
+        // Вывод списка всех записей резервирования
+        System.out.println("Все записи после отмены");
+        bookingPresenter.showReservationList();
+        System.out.println();
 
+        // Меняем запись
+        bookingView.changeReservationTable(1002);
 
-
-
-
-
-
-
-
-
-
-
-
-        //bookingView.changeReservationTable(1001, new Date(), 1, "Станислав");
+        // Вывод списка всех записей резервирования
+        System.out.println("Все записи после изменения");
+        bookingPresenter.showReservationList();
+        System.out.println();
 
     }
 
