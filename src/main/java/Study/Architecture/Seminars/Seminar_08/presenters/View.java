@@ -14,9 +14,10 @@ public interface View {
 
     void registerObserver(ViewObserver observer);
 
+    void getReservationList(List<Reservation> reservationList); // Вывод списка всех записей резервирования
 
-    // блог с тестами
-    void showReservationList(List<Reservation> reservationList); // Вывод списка всех записей резервирования
     void dellReservation(int id);
+
+
 
 }

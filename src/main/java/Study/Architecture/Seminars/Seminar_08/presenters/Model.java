@@ -12,6 +12,7 @@ public interface Model {
     Collection<Table> loadTables();
 
     int reservationTable(Date reservationDate, int tableNo, String name);
+    int changeReservationTable(int oldReservation);
 
     // блог с тестами
     List<Reservation> getReservationList(); // возвращаем список всех записей резервирования

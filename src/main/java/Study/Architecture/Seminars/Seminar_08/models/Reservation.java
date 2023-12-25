@@ -24,6 +24,11 @@ public class Reservation {
         return name;
     }
 
+    // Возвращаем номер стола
+    public int getTableNumber() {
+        return table.getNo();
+    }
+
     {
         id = ++counter;
     }

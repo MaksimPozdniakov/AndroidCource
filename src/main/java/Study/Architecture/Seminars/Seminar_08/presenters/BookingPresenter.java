@@ -1,6 +1,5 @@
 package Study.Architecture.Seminars.Seminar_08.presenters;
 
-
 import java.util.Date;
 
 public class BookingPresenter implements ViewObserver {
@@ -33,15 +32,21 @@ public class BookingPresenter implements ViewObserver {
         }
     }
 
-
-
     // блок с тестами
-
     // Вывод списка всех записей резервирования
     public void showReservationList() {
-        view.showReservationList(model.getReservationList());
+        view.getReservationList(model.getReservationList());
     }
 
+    @Override
+    public void dellReservation(int id) {
+        model.dellReservation(id);
+    }
 
+    @Override
+    public void changeReservationTable(int oldReservation) {
+        int reservation = model.changeReservationTable(oldReservation);
+        updateUIReservationTableResult(reservation);
+    }
 
 }
