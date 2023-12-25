@@ -1,4 +1,4 @@
-package ru.geekbrains.lesson6.notes.domain;
+package Study.Architecture.Seminars.Seminar_06.notes.domain;
 
 import java.util.Date;
 

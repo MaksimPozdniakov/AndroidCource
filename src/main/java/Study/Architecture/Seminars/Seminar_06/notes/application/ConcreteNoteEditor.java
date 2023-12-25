@@ -1,9 +1,9 @@
-package ru.geekbrains.lesson6.notes.application;
+package Study.Architecture.Seminars.Seminar_06.notes.application;
 
-import ru.geekbrains.lesson6.notes.application.interfaces.NoteEditor;
-import ru.geekbrains.lesson6.notes.application.interfaces.NotesDatabaseContext;
-import ru.geekbrains.lesson6.notes.application.interfaces.NotesPresenter;
-import ru.geekbrains.lesson6.notes.domain.Note;
+import Study.Architecture.Seminars.Seminar_06.notes.application.interfaces.NoteEditor;
+import Study.Architecture.Seminars.Seminar_06.notes.application.interfaces.NotesDatabaseContext;
+import Study.Architecture.Seminars.Seminar_06.notes.application.interfaces.NotesPresenter;
+import Study.Architecture.Seminars.Seminar_06.notes.domain.Note;
 
 import java.util.Collection;
 import java.util.Date;
@@ -30,6 +30,10 @@ public class ConcreteNoteEditor implements NoteEditor {
         dbContext.getAll().add(item);
         return dbContext.saveChanges();
     }
+
+//    public Collection<Note> getCollection() {
+//        return dbContext.getAll();
+//    }
 
     @Override
     public boolean edit(Note item) {

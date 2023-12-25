@@ -1,11 +1,10 @@
-package ru.geekbrains.lesson6.database;
+package Study.Architecture.Seminars.Seminar_06.database;
 
 import java.util.Date;
 
 public class NotesRecord {
 
     private static int counter;
-
     private int userId;
     private int id;
     private String title;

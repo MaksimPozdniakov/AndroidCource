@@ -1,8 +1,10 @@
-package ru.geekbrains.lesson6.notes.presentation.queries.controllers;
+package Study.Architecture.Seminars.Seminar_06.notes.presentation.queries.controllers;
 
-import ru.geekbrains.lesson6.notes.application.interfaces.NoteEditor;
-import ru.geekbrains.lesson6.notes.domain.Note;
-import ru.geekbrains.lesson6.notes.presentation.queries.controllers.Controller;
+
+import Study.Architecture.Seminars.Seminar_06.notes.application.interfaces.NoteEditor;
+import Study.Architecture.Seminars.Seminar_06.notes.domain.Note;
+
+import java.util.Collection;
 
 public class NotesController extends Controller {
 
@@ -25,5 +27,8 @@ public class NotesController extends Controller {
         notesEditor.printAll();
     }
 
+    public Collection<Note> getCollection() {
+        return notesEditor.getAll();
+    }
 
 }

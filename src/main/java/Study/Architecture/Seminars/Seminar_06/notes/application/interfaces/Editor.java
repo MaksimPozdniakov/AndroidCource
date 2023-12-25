@@ -1,4 +1,4 @@
-package ru.geekbrains.lesson6.notes.application.interfaces;
+package Study.Architecture.Seminars.Seminar_06.notes.application.interfaces;
 
 import java.util.Collection;
 import java.util.Optional;
